@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <script src="assets/javascript/game.js"></script>
+  <title>Hangman</title>
+</head>
+
+<body>
+
+  <h1>Let's Play Hangman</h1>
+  <br>
+  <ul>
+    <li id="0">_</li>
+    <li id="1">_</li>
+    <li id="2">_</li>
+    <li id="3">_</li>
+    <li id="4">_</li>
+    <li id="5">_</li>
+    <li id="6">_</li>
+  </ul>
+  <br>
+  <h>Letters Guessed</h>
+  <br>
+  <div id="lettersguessed"></div>
+
+
+</body>
+
+</html>
+
+<!-- Prompt user to play
+
+Computer to randomly select word to be guessed from word list. Words are set up as arrays with 1 letter per index.
+
+User selects a key.
+
+
+If letter has already been guessed then computer should take no action and wait for next guess
+
+Player choooses letter and computer deducts 1 from "Guesses Remaining".
+
+Computer compares letter choice to letters in word by comparing to indexes of the array. Use charAt?
+
+If letter matches then computer reveals its position in the word. (how to make the letter show up in the correct slot?) 
+
+If this is the final letter in the word the computer adds 1 to "Wins" and says "You Win!" and starts game over.
+
+If not the final letter then computer waits for user to select again.
+
+If letter doesn't match then computer adds it to the "Letters Already Guessed".
+
+
+If this was the last guess then the computer displays "You Lose!" and starts the game again.
+
+If this is not the last guess then the computer waits for user to select again. -->
