@@ -3,63 +3,101 @@
 
 var wins = 0;
 var losses = 0;
-var lettersguessed = [];
-var guessesleft = 0;
+var lettersGuessed = [];
+var placeholder = [];
+var guessesleft = 12;
 var i = 0;
+var x = 0;
+var correctguesses = 0;
+var solutions = [["m","a","d","o","n","n","a"], ["b","l","o","n","d","i","e"], ["d","a","h","l","i","a"]];
 
-var madonna = ["m", "a", "d", "o", "n", "n", "a"];
-// Computer to randomly? select word to be guessed from word list. Words are set up as arrays with 1 letter per index.
 
+
+
+// Computer to choose next word to be guessed from word list. Words are set up as arrays with 1 letter per index.
 
 
 
 
 //User selects a key. 
 
+
 document.onkeyup = function (event) {
     var userGuess = event.key;
 
 
-    // lettersguessed.push(userGuess);
-    // // document.getElementById("lettersguessed").innerHTML = lettersguessed;
-    // console.log(userGuess);
-    // console.log(madonna);
-    // console.log(lettersguessed);
-    
 
-
-
-    lettersguessed.push(userGuess);
-    document.getElementById("lettersguessed").innerHTML = lettersguessed;
-    console.log(lettersguessed);
-
-    //   console.log(lettersguessed.length);
-    // function myfunction() {
-    //     lettersguessed[lettersguessed.length] = (userGuess);
-    //     document.getElementById("lettersguessed").innerHTML = lettersguessed;
-    //     console.log(lettersguessed);
-    // }
-
+    function checkletter(letter) {
+        return letter === userGuess;
+    }
 
     // reveal letter in position;
-    for (i = 0; i < madonna.length; i++) {
-        if (userGuess === madonna[i]) {
-            document.getElementById(i).innerHTML = madonna[i];
+
+    if (solutions[x].some(checkletter)) {
+
+        for (i = 0; i < solutions[x].length; i++) {
+            if (userGuess === solutions[x][i]) {
+                document.getElementById(i).innerHTML = solutions[x][i];
+                correctguesses++;
+                if (correctguesses === solutions[x].length) {
+                    wins++;
+                    document.getElementById("gameswon").innerHTML = wins;
+                    x++;
+                    guessesleft = 12;
+                    correctguesses = 0;
+                } else {
+                    continue;
+                }
 
 
 
-            // add letter to guessed list 
 
+            } else {
+                continue;
+            }
+        }
 
+    } else {
+        lettersGuessed.push(userGuess);
 
+        document.getElementById("lettersguessed").innerHTML = lettersGuessed.join(" ");
+        guessesleft = (guessesleft - 1);
+        document.getElementById("guessesremaining").innerHTML = guessesleft;
 
+        if (guessesleft === 0) {
+            losses++;
+            document.getElementById("gameslost").innerHTML = losses;
+            x++;
+            placeholder.length = solutions[x].length;
+            for (i = 0; i < placeholder.length; i++)
+            
+            document.getElementById(i).innerHTML=
+            guessesleft = 12;
+            correctguesses = 0;
 
-        };
-    };
-
-
+        }
+    }
 
 }
+
+
+
+
+
+
+
+
+// add letter to guessed list 
+
+
+
+
+
+
+
+
+
+
 
 
 
