@@ -9,6 +9,7 @@ ul {
 li {
     float: left;
     text-decoration: underline;
+    border-bottom-style: solid;
     margin-left: 5px;
 }
 
